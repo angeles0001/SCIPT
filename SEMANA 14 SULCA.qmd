@@ -1,0 +1,100 @@
+---
+title: "SEMANA 14"
+author: "ANGELES_SULCA"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+#IMPORTAMOS LA DATA
+
+```{r}
+library(readr)
+autismo <- read_csv("C:/Users/Dell/Downloads/autismo.csv")
+View(autismo)
+data<- read_csv("C:/Users/Dell/Downloads/autismo.csv")
+View(autismo)
+```
+
+```{r}
+#Vemos las 6 primeras filas 
+head(data)
+```
+
+```{r}
+#Estructura de la data 
+str(data)
+```
+
+```{r}
+#MEDIDAS DE TENDENCIA CENTRAL 
+#MEDIA ARITMETICA 
+mean(data$Puntuacion_P1)
+mean(data$Puntuacion_P2)
+```
+
+```{r}
+#MEDIANA 
+median(data$Puntuacion_P1)
+median(data$Puntuacion_P2)
+```
+
+```{r}
+#MODA (PLAQUETAS, TALLA) 
+mode_Puntuacion_P1<- names(sort(table(data$Puntuacion_P1),decreasing = TRUE))
+mode_Puntuacion_P2<- names(sort(table(data$Puntuacion_P2),decreasing = TRUE))
+```
+
+```{r}
+#MEDIDAS DE DISPERSION 
+#VARIANZA 
+var(data$Puntuacion_P1,na.rm = TRUE)
+var(data$Puntuacion_P2,na.rm = TRUE)
+```
+
+```{r}
+#DESVIACION ESTANDAR
+sd(data$Puntuacion_P1,na.rm = TRUE)
+sd(data$Puntuacion_P2,na.rm = TRUE)
+```
+
+```{r}
+#RANGO
+range(data$Puntuacion_P1,na.rm = TRUE)
+range(data$Puntuacion_P2,na.rm = TRUE)
+```
+
+```{r}
+#RANGO INTERCUARTILICO
+IQR(data$Puntuacion_P1,na.rm = TRUE)
+IQR(data$Puntuacion_P2,na.rm = TRUE)
+```
+
+```{r}
+#MEDIDAS DE POSICION
+quantile(data$Puntuacion_P1,probs = c(0.25,0.5,0.75,0.90),na.rm = TRUE) 
+quantile(data$Puntuacion_P2,probs = c(0.25,0.5,0.75,0.90),na.rm = TRUE)
+```
+
+```{r}
+#RESUMEN 
+summary(data$Puntuacion_P1)
+summary(data$Puntuacion_P2)
+```
+
+```{r}
+#RESUMEN DE TODAS LAS VARIABLES 
+summary(data)
+```
+
+```{r}
+#VISUALIZACION GRAFICA 
+#HISTOGRAMA 
+ggplot(data,aes(x=Puntuacion_P1))+geom_histogram(bins = 30)+theme_minimal()
+ggplot(data,aes(x=Puntuacion_P2))+geom_histogram(bins = 30)+theme_minimal()
+```
