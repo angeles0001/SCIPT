@@ -1,0 +1,28 @@
+---
+title: "SEMANA 6 PC4"
+author: "ANGELES_SULCA"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+#COMO LIMPIAR UNA DATA
+library(readr)
+autismo <- read_csv("C:/Users/Dell/Downloads/autismo.csv")
+View(autismo)
+data<-(autismo)
+```
+
+```{r}
+#DATOS DE LA LIMPIA
+data_limpia<-data[!is.na(data$Puntuacion_P3),]
+mean(data_limpia$Puntuacion_P3)
+```
