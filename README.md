@@ -1,1 +1,1 @@
-# SCIPT
+# SCRIPT
